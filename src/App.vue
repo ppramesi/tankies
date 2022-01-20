@@ -1,12 +1,29 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
+    <canvas id="pixi"></canvas>
   </div>
 </template>
+
+<script>
+import drawGrid from "./engine";
+
+export default {
+  name: "ConnectionsLayer",
+  methods: {
+    drawPixi() {
+      drawGrid(document.getElementById("pixi"));
+    },
+  },
+  mounted() {
+    this.drawPixi();
+  },
+  data() {
+    return {
+      grid: [],
+    };
+  },
+};
+</script>
 
 <style>
 #app {
@@ -28,5 +45,9 @@
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+body {
+  margin: 0;
+  /* background-color: black; */
 }
 </style>
