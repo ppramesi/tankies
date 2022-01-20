@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <canvas id="pixi"></canvas>
+    <canvas id="pixi" ref="pixi"></canvas>
   </div>
 </template>
 
@@ -11,7 +11,8 @@ export default {
   name: "ConnectionsLayer",
   methods: {
     drawPixi() {
-      drawGrid(document.getElementById("pixi"));
+    //   drawGrid(document.getElementById("pixi"));
+      drawGrid(this.$refs.pixi);
     },
   },
   mounted() {
