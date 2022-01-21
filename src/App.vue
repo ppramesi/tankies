@@ -5,14 +5,15 @@
 </template>
 
 <script>
-import drawGrid from "./engine";
+import Engine from "./engine/engine.js";
 
 export default {
   name: "ConnectionsLayer",
   methods: {
     drawPixi() {
-    //   drawGrid(document.getElementById("pixi"));
-      drawGrid(this.$refs.pixi);
+      //   drawGrid(document.getElementById("pixi"));
+      this.engine = new Engine(this.$refs.pixi, window.innerWidth, window.innerHeight);
+      this.engine.insertTank('asdfasdasdf', 38, 38)
     },
   },
   mounted() {
@@ -21,6 +22,7 @@ export default {
   data() {
     return {
       grid: [],
+        engine: null
     };
   },
 };
