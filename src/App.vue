@@ -12,8 +12,14 @@ export default {
   methods: {
     drawPixi() {
       //   drawGrid(document.getElementById("pixi"));
-      this.engine = new Engine(this.$refs.pixi, window.innerWidth, window.innerHeight);
-      this.engine.insertTank('asdfasdasdf', 38, 38)
+      this.engine = new Engine(
+        this.$refs.pixi,
+        window.innerWidth,
+        window.innerHeight
+      );
+      this.engine.drawGrids(30, 2)
+      this.engine.insertTank("asdfasdasdf", 38, 38);
+      console.log(this.engine)
     },
   },
   mounted() {
@@ -22,7 +28,7 @@ export default {
   data() {
     return {
       grid: [],
-        engine: null
+      engine: null,
     };
   },
 };

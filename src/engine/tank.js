@@ -39,7 +39,7 @@ class Tank {
   constructor(engine, id, x, y) {
     this.engine = engine;
     this.id = id || uuidv4();
-    this.texture = PIXI.Texture.from(require("../../assets/tank.svg"));
+    this.texture = PIXI.Texture.from(require("../assets/tank.svg"));
     this.sprite = new TankSprite(this.texture, this.id);
 
     this.sprite.interactive = true;
@@ -57,7 +57,7 @@ class Tank {
     this.sprite.width = this.engine.gridSize;
     this.sprite.height = this.engine.gridSize;
     // this.engine.app.stage.addChild(this.sprite);
-    this.engine.tanksContainer.addChild(this.sprite)
+    this.engine.tanksContainer.addChild(this.sprite);
   }
 }
 

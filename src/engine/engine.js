@@ -1,16 +1,15 @@
 import * as PIXI from "pixi.js";
-import { uuidv4 } from "../utils/utils.js";
-import Tank from './tank.js'
+import Tank from "./tank.js";
 
-class TankContainer extends PIXI.Container{
-  constructor(){
-    super()
+class TankContainer extends PIXI.Container {
+  constructor() {
+    super();
   }
 
-  findById(id){
+  findById(id) {
     for (var i = 0, j = this.children.length; i < j; i++) {
       if (this.children[i].id === id) {
-          return this.children[i];
+        return this.children[i];
       }
     }
   }
@@ -25,11 +24,11 @@ class Engine {
       transparent: true,
       view: canvas,
     });
-    this.texture = PIXI.Texture.from(require("../../assets/tank.svg"));
+    this.texture = PIXI.Texture.from(require("../assets/tank.svg"));
     this.totalGridSize = 0;
     this.gridSize = 0;
     this.tanksContainer = new TankContainer();
-    this.tanks = []
+    this.tanks = [];
     this.tiles = [];
   }
 
@@ -50,7 +49,7 @@ class Engine {
       }
       this.tiles.push(myTile);
     }
-    this.app.addChild(this.tanksContainer)
+    this.app.stage.addChild(this.tanksContainer);
   }
 
   moveTank(id, x, y) {
@@ -60,8 +59,8 @@ class Engine {
   }
 
   insertTank(id, x, y) {
-    const newTank = new Tank(this, id, x, y)
-    this.tanks.push(newTank)
+    const newTank = new Tank(this, id, x, y);
+    this.tanks.push(newTank);
     // id = id || uuidv4();
     // let sprite = new PIXI.Sprite(this.texture);
 
