@@ -45,13 +45,6 @@ class Engine {
       .on("pointerup", onDragEnd)
       .on("pointerupoutside", onDragEnd)
       .on("pointermove", onDragMove);
-    // sprite.on('rightdown', function(event){
-    //     event.stopPropagation()
-    //     event.data.originalEvent.preventDefault()
-    //     console.log('sprite rightdown')
-
-    //     return false
-    // })
 
     sprite.x = Math.floor(x / this.totalGridSize) * this.totalGridSize;
     sprite.y = Math.floor(y / this.totalGridSize) * this.totalGridSize;
